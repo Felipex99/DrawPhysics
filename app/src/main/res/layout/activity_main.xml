@@ -22,7 +22,58 @@
             android:background="@drawable/pencil_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:tooltipText="Desenhar Forma"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/color"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="92dp"
+            android:background="@drawable/circle_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
+            android:tooltipText="Escolher cor"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/hide"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="180dp"
+            android:background="@drawable/down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
+            android:tooltipText="Ocultar Ferramentas"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="260dp"
+            android:background="@drawable/play"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
+            android:tooltipText="Simular"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/setting"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="328dp"
+            android:background="@drawable/settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:tooltipText="Configurações"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
