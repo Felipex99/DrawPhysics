@@ -5,6 +5,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private int cor_pincel;
     private ConstraintLayout toolbar;
     private ImageView config, play, color, pencil, hide;
+    public static Path path = new Path();
+    public static Paint pencil_brush = new Paint();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
