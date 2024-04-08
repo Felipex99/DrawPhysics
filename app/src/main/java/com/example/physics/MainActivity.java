@@ -1,14 +1,18 @@
 package com.example.physics;
-
+import static com.example.physics.Screen.color_brush;
+import static com.example.physics.Screen.path_list;
+import static com.example.physics.Screen.color;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +23,7 @@ import com.skydoves.colorpickerview.ColorPickerDialog;
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 
 public class MainActivity extends AppCompatActivity {
-    private int cor_pincel;
+    private int cor_pincel = Color.BLACK;
     private ConstraintLayout toolbar;
     private ImageView config, play, color, pencil, hide, eraser;
     public static Path path = new Path();
@@ -32,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         declaracaoComponentes();
         acaoComponentes();
     }
+
+    public void corAtual(int cor){
+        color_brush = cor;
+        path = new Path();
+    }
     public void declaracaoComponentes(){
         config = findViewById(R.id.setting);
         play = findViewById(R.id.play);
@@ -42,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
         eraser = findViewById(R.id.eraser);
     }
     public void acaoComponentes(){
+        pencil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pincel(view);
+                Toast.makeText(MainActivity.this, "Quantidades de Path:"+path_list.size(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        eraser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                eraser(view);
+            }
+        });
         color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                                     public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
                                         cor_pincel = envelope.getColor();
                                         color.setColorFilter(envelope.getColor());
+                                        pincel(view);
+                                        corAtual(cor_pincel);
                                     }
                                 })
                         .setNegativeButton(getString(R.string.cancel),
@@ -81,5 +105,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void pincel(View view){
+        pencil_brush.setColor(cor_pincel);
+        corAtual(cor_pincel);
+    }
+    public void eraser(View view){
+        path_list.clear();
+        Screen.color.clear();
+        path.reset();
     }
 }
