@@ -3,6 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="bege">#ff9933</color>
 
+<!--CORES DOS COMPONENTES -->
+
+
+    <color name="bege">#ff9933</color>
+    <color name="pincel">#000000</color>
 </resources>

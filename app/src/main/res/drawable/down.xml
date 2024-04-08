@@ -3,7 +3,10 @@
     android:viewportHeight="24" android:viewportWidth="24"
     android:width="24dp" >
     <path android:fillColor="@android:color/white"
-        android:pathData="M7.41,8.59L12,13.17l4.59,-4.58L18,10l-6,6 -6,-6 1.41,-1.41z"
+        android:pathData="M7.41,8.59
+        L12,13.l4.59,-4.58
+        L18,10
+        l-6,6 -6,-6 1.41,-1.41z"
         android:strokeColor="@color/black"
         android:strokeWidth="1"
         android:fillType="evenOdd"

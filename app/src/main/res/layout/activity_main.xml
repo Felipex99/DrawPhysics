@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include layout="@layout/canvas_layout"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -14,66 +17,69 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/tools">
 
-        <androidx.appcompat.widget.AppCompatButton
+
+        <ImageView
             android:id="@+id/pencil"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="24dp"
-            android:background="@drawable/pencil_icon"
+            android:src="@drawable/pencil_icon"
+            android:tooltipText="Desenhar Forma"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:tooltipText="Desenhar Forma"/>
+            app:layout_constraintVertical_bias="0.55" />
 
-        <androidx.appcompat.widget.AppCompatButton
+
+        <ImageView
             android:id="@+id/color"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="92dp"
-            android:background="@drawable/circle_shape"
+            android:src="@drawable/circle_shape"
+            android:tooltipText="Escolher cor"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.285"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55"
-            android:tooltipText="Escolher cor"/>
+            app:layout_constraintVertical_bias="0.55" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/hide"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="180dp"
-            android:background="@drawable/down"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55"
-            android:tooltipText="Ocultar Ferramentas"/>
-
-
-
-        <androidx.appcompat.widget.AppCompatButton
+        <ImageView
             android:id="@+id/play"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="260dp"
-            android:background="@drawable/play"
+            android:src="@drawable/play"
+            android:tooltipText="Simular"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.714"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55"
-            android:tooltipText="Simular"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <ImageView
             android:id="@+id/setting"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="328dp"
-            android:background="@drawable/settings"
+            android:src="@drawable/settings"
+            android:tooltipText="Configurações"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.955"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:tooltipText="Configurações"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/hide"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/down"
+        android:tooltipText="Ocultar Ferramentas"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

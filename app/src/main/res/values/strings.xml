@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">physics</string>
+    <string name="select">SELECIONAR</string>
+    <string name="cancel">CANCELAR</string>
 </resources>
