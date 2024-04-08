@@ -21,7 +21,7 @@ import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 public class MainActivity extends AppCompatActivity {
     private int cor_pincel;
     private ConstraintLayout toolbar;
-    private ImageView config, play, color, pencil, hide;
+    private ImageView config, play, color, pencil, hide, eraser;
     public static Path path = new Path();
     public static Paint pencil_brush = new Paint();
 
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         pencil = findViewById(R.id.pencil);
         hide = findViewById(R.id.hide);
         toolbar = findViewById(R.id.toolbar);
+        eraser = findViewById(R.id.eraser);
     }
     public void acaoComponentes(){
         color.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onColorSelected(ColorEnvelope envelope, boolean fromUser) {
                                         cor_pincel = envelope.getColor();
-                                        pencil.setColorFilter(envelope.getColor());
                                         color.setColorFilter(envelope.getColor());
                                     }
                                 })
