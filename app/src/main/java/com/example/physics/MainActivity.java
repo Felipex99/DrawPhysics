@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         pencil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                destacarEraser(false,view);
                 pincel(view);
                 Toast.makeText(MainActivity.this, "Quantidades de Path:"+path_list.size(), Toast.LENGTH_SHORT).show();
             }
@@ -61,12 +62,14 @@ public class MainActivity extends AppCompatActivity {
         eraser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                eraser(view);
+                destacarEraser(true,view);
+
             }
         });
         color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                destacarEraser(false,view);
                 new ColorPickerDialog.Builder(MainActivity.this)
                         .setTitle("Cor do Pincel")
                         .setPositiveButton(getString(R.string.select),
@@ -115,5 +118,15 @@ public class MainActivity extends AppCompatActivity {
         path_list.clear();
         Screen.color.clear();
         path.reset();
+    }
+    public void destacarEraser(boolean ativo, View view){
+        if(ativo){
+            eraser(view);
+            eraser.setScaleY(1.4f);
+            eraser.setScaleX(1.4f);
+        }else{
+            eraser.setScaleY(1f);
+            eraser.setScaleX(1f);
+        }
     }
 }
