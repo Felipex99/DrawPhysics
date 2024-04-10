@@ -22,10 +22,11 @@ import java.util.ArrayList;
 
 public class Screen extends View {
     public static ArrayList<Path> path_list = new ArrayList<Path>();
-    public static ArrayList<Integer> color = new ArrayList<Integer>();
+    public static ArrayList<Integer> color_list = new ArrayList<Integer>();
+    public static ArrayList<Float> width_list = new ArrayList<Float>();
     public ViewGroup.LayoutParams layoutParams;
     public static int color_brush = Color.BLACK;
-    public static float largura = 10f;
+    public static float width_brush = 10f;
     public Screen(Context context) {
         super(context);
         init(context);
@@ -47,7 +48,7 @@ public class Screen extends View {
         pencil_brush.setStyle(Paint.Style.STROKE);
         pencil_brush.setStrokeCap(Paint.Cap.ROUND);
         pencil_brush.setStrokeJoin(Paint.Join.ROUND);
-        pencil_brush.setStrokeWidth(largura);
+        pencil_brush.setStrokeWidth(width_brush);
         layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
     @Override
@@ -63,7 +64,8 @@ public class Screen extends View {
                 path.lineTo(x, y);
                 if(!path_list.contains(path)){
                     path_list.add(path);
-                    color.add(color_brush);
+                    color_list.add(color_brush);
+                    width_list.add(width_brush);
                     invalidate();
                 }
                 return true;
@@ -76,7 +78,8 @@ public class Screen extends View {
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         for(int i = 0; i<path_list.size(); i++){
-            pencil_brush.setColor(color.get(i));
+            pencil_brush.setColor(color_list.get(i));
+            pencil_brush.setStrokeWidth(width_list.get(i));
             canvas.drawPath(path_list.get(i), pencil_brush);
             invalidate();
         }

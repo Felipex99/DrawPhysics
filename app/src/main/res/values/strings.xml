@@ -2,5 +2,5 @@
     <string name="app_name">physics</string>
     <string name="select">SELECIONAR</string>
     <string name="cancel">CANCELAR</string>
-    <string name="largura">DEFINA A LARGURA DO PINCEL</string>
+    <string name="largura">LARGURA DO PINCEL</string>
 </resources>
