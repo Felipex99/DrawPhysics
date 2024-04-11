@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 destacarEraser(false,view);
                 pincel(view);
-                Toast.makeText(MainActivity.this, "Quantidades de Path:"+path_list.size(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Quantidades de Path:"+path, Toast.LENGTH_SHORT).show();
             }
         });
         pencil.setOnLongClickListener(new View.OnLongClickListener() {
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                         nova_largura = value*10;
                         largura_item.setScaleY(value/10);
+                        largura_item.setScaleX(value/10);
                     }
                 });
                 return false;
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void eraser(View view){
         path_list.clear();
-        Screen.color_list.clear();
+        color_list.clear();
         path.reset();
     }
     public void destacarEraser(boolean ativo, View view){

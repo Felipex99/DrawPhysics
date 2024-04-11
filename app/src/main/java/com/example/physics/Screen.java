@@ -27,6 +27,10 @@ public class Screen extends View {
     public ViewGroup.LayoutParams layoutParams;
     public static int color_brush = Color.BLACK;
     public static float width_brush = 10f;
+    private float x, y; // Position of the ball
+    private float vx, vy; // Velocity of the ball
+    private float ax, ay; // Acceleration of the ball
+    private float dt = 1f; // Time step (adjust as needed)
     public Screen(Context context) {
         super(context);
         init(context);
@@ -43,6 +47,12 @@ public class Screen extends View {
     }
 
     private void init(Context context){
+        x = getWidth()/2;//
+        y = getHeight()/2;//
+        vx = 0;
+        vy = 0;
+        ax = 0.1f;
+        ay = 0.1f;
         pencil_brush.setAntiAlias(true);
         pencil_brush.setColor(color_brush);
         pencil_brush.setStyle(Paint.Style.STROKE);
@@ -81,8 +91,34 @@ public class Screen extends View {
             pencil_brush.setColor(color_list.get(i));
             pencil_brush.setStrokeWidth(width_list.get(i));
             canvas.drawPath(path_list.get(i), pencil_brush);
+            fisica(canvas);
             invalidate();
         }
-    }
 
+    }
+    public void fisica(Canvas canvas){
+        // Update position based on velocity
+        x += vx * dt;
+        y += vy * dt;
+
+        // Update velocity based on acceleration
+        vx += ax * dt;
+        vy += ay * dt;
+
+        // Handle collisions with walls
+        if (x < 0 || x > getWidth()) {
+            vx *= -1; // Reverse velocity
+        }
+        if (y < 0 || y > getHeight()) {
+            vy *= -1; // Reverse velocity
+        }
+
+        // Draw the ball at its current position
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        canvas.drawCircle(x, y, 50, paint);
+
+        // Invalidate the View to trigger redraw
+        invalidate();
+    }
 }

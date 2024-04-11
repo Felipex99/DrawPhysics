@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.physics"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -32,7 +32,6 @@ android {
 }
 
 dependencies {
-
     implementation("com.github.skydoves:colorpickerview:2.3.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
